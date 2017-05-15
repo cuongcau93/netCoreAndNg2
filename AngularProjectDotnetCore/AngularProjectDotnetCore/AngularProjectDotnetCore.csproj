@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\assets\images\logo.jpg" />
+    <Content Include="wwwroot\app\home\welcome.component.html" />
+    <Content Include="wwwroot\app\home\welcome.component.ts" />
+    <Content Include="wwwroot\app\products\product-filter.pipe.ts" />
+    <Content Include="wwwroot\app\products\product-list.component.html" />
+    <Content Include="wwwroot\app\products\product-list.component.ts" />
+    <Content Include="wwwroot\app\products\product.module.ts" />
+    <Content Include="wwwroot\app\products\product.ts" />
+    <Content Include="wwwroot\app\shared\shared.module.ts" />
+    <Content Include="wwwroot\app\shared\star.component.css" />
+    <Content Include="wwwroot\app\shared\star.component.html" />
+    <Content Include="wwwroot\app\shared\star.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
