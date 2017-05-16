@@ -46,8 +46,10 @@ namespace AngularProjectDotnetCore
                 }
             });
 
+            //Browse components of wwwroot
             app.UseStaticFiles();
 
+            //declare routes Mvc 
             app.UseMvc(routes =>
             {  
             });

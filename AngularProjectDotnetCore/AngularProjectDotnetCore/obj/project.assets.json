@@ -9775,10 +9775,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\123\\Desktop\\ng2\\ng2_vs2017\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
+      "projectUniqueName": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
       "projectName": "AngularProjectDotnetCore",
-      "projectPath": "C:\\Users\\123\\Desktop\\ng2\\ng2_vs2017\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
-      "outputPath": "C:\\Users\\123\\Desktop\\ng2\\ng2_vs2017\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\obj\\",
+      "projectPath": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
+      "outputPath": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
