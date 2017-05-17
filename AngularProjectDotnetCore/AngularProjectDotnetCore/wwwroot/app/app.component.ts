@@ -14,6 +14,9 @@
                     <li>
                         <a [routerLink] = "['/products']">Product List</a>
                     </li>
+                    <li>
+                        <a [routerLink] = "['/form']">Form</a>
+                    </li>
                 </ul>
             </div>
         </nav>

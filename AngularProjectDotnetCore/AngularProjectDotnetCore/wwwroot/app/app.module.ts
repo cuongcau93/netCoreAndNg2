@@ -8,6 +8,7 @@ import { WelcomeComponent } from "./home/welcome.component";
 import { HttpModule } from '@angular/http';
 import { ProductModule } from "./products/product.module";
 import { ProductListComponent } from "./products/product-list.component";
+import { FormModule } from "./Form/form.module";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { ProductListComponent } from "./products/product-list.component";
             { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
         ]),
         ProductModule,
+        FormModule
     ],
     declarations: [
         AppComponent,

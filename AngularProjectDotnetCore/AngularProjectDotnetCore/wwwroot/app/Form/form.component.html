@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <h3>Angular 2 Forms</h3>
+    <form #form="ngForm" novalidate>
+        
+        <div class="form-group" [class.has-warning]="firstName.invalid && firstName.dirty">
+            <label class="control-label">First Name</label>
+            <input #firstName ="ngModel" required pattern="...+"  type="text" name="firstName" class="form-control" value="" placeholder="First Name" [ngModel] ="model.firstName"
+                                                                                                            (ngModelChange) ="firstNameToUpperCae($event)"/>
+            <div *ngIf="firstName.invalid && firstName.dirty" class="alert alert-danger">
+                Firt Name is required.
+            </div>
+        </div>
+        
+        <!--<div class="form-group">
+            <label>Last Name</label>
+            <input type="text" required name="lastName" class="form-control" value="" placeholder="Last Name" [(ngModel)] ="model.lastName" />
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="is-full-name"
+                       [(ngModel)] = "model.isFullTime"/> Full Time Employee
+            </label>
+        </div>
+
+        <label>Payment Type</label>
+
+        <div class="radio">
+            <label>
+                <input type="radio" name="paymentType" value="W2" [(ngModel)] ="model.paymentType"/>
+                W2
+            </label>
+        </div>
+        
+        <div class="radio">
+            <label>
+                <input type="radio" name="paymentType" value="1099" [(ngModel)] ="model.paymentType"/>
+                1099
+            </label>
+        </div>
+                   -->
+
+        <div class="form-group">
+            <label>Primary Language</label>
+            <select class="form-control"
+                    name="primaryLanguage"
+                    [(ngModel)] ="model.primaryLanguage">
+                <option value="default"></option>
+                <option *ngFor ="let lang of langues" >
+                    {{lang}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Date Hired</label>
+            <input type="date" class="form-control" value="" placeholder="First" name="Date-Hired" ngModel />
+        </div>
+        <button class="btn btn-primary" type="button">OK</button>
+    </form>
+    <br />
+    <!--Model: {{ model | json }}
+    <br />
+    Angular: {{form.value | json}}-->
+</div>    

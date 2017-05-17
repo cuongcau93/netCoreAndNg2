@@ -18,7 +18,6 @@ import { ProductFilterPipe } from "./product-filter.pipe";
             { path: 'products', component: ProductListComponent },
             //{
             //    path: 'product/: id',
-
             //},
         ]),
         ShareModule
