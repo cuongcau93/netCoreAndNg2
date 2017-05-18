@@ -1,14 +1,23 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
 import { Employee } from "../models/employee.model";
+import { FormPoster } from "./form-poster.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
     moduleId: module.id,
     templateUrl: 'form.component.html'
 })
 
-export class FormComponent {
+export class FormComponent implements OnInit {
+
+    constructor(private formPoster: FormPoster){}
+
+    hasPrimaryLanguageError: boolean = false;
     langues: string[] = ['English', 'Spanish', 'Other'];
-    model = new Employee('', 'Manh Cuong', true, "W2", "default","11/11/2015" );
+    model = new Employee('', '', true, "W2", "default","11/11/2015" );
+
+    product: any;
+
     firstNameToUpperCae(value: string): void {
         if (value.length > 0)
         {
@@ -19,4 +28,31 @@ export class FormComponent {
             this.model.firstName = value;
     }
 
+    validatePrimaryLanguage(event: any) {
+        if (this.model.primaryLanguage === "default")
+            this.hasPrimaryLanguageError = true;
+        else
+            this.hasPrimaryLanguageError = false;
+        console.log('lang: ' + this.model.primaryLanguage)
+    }
+
+    //submit form
+    submitForm(form: NgForm) {
+        //validate form
+        this.validatePrimaryLanguage(this.model.primaryLanguage);
+        if (this.hasPrimaryLanguageError)
+            return
+
+        //console.log(form.value);
+        this.formPoster.postEmployeeForm(this.model)
+            .subscribe(
+                data => console.log('success: ', data),
+                err => console.log('error: ', err)
+            )
+    }
+
+    ngOnInit(): void {
+        
+        console.log("sss"+this.formPoster.getProducts());
+    }
 }

@@ -21,7 +21,6 @@ C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProj
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\bin\Debug\netcoreapp1.1\AngularProjectDotnetCore.runtimeconfig.dev.json
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\bin\Debug\netcoreapp1.1\AngularProjectDotnetCore.dll
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\bin\Debug\netcoreapp1.1\AngularProjectDotnetCore.pdb
-C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\obj\Debug\netcoreapp1.1\AngularProjectDotnetCore.csprojResolveAssemblyReference.cache
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\obj\Debug\netcoreapp1.1\AngularProjectDotnetCore.AssemblyInfo.cs
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\obj\Debug\netcoreapp1.1\AngularProjectDotnetCore.dll
 C:\Users\123\Documents\GitHub\netCoreAndNg2\AngularProjectDotnetCore\AngularProjectDotnetCore\obj\Debug\netcoreapp1.1\AngularProjectDotnetCore.pdb

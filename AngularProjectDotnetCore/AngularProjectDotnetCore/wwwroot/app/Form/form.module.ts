@@ -2,6 +2,7 @@
 import { FormComponent } from "./form.component";
 import { RouterModule } from "@angular/router";
 import { ShareModule } from "../shared/shared.module";
+import { FormPoster } from "./form-poster.service";
 
 @NgModule({
     declarations: [
@@ -16,6 +17,10 @@ import { ShareModule } from "../shared/shared.module";
             //},
         ]),
         ShareModule
+    ],
+
+    providers: [
+        FormPoster,
     ]
 })
 

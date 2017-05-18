@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var form_component_1 = require("./form.component");
 var router_1 = require("@angular/router");
 var shared_module_1 = require("../shared/shared.module");
+var form_poster_service_1 = require("./form-poster.service");
 var FormModule = (function () {
     function FormModule() {
     }
@@ -25,6 +26,9 @@ FormModule = __decorate([
                 { path: 'form', component: form_component_1.FormComponent },
             ]),
             shared_module_1.ShareModule
+        ],
+        providers: [
+            form_poster_service_1.FormPoster,
         ]
     })
 ], FormModule);
