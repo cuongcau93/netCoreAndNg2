@@ -17,6 +17,9 @@
                     <li>
                         <a [routerLink] = "['/form']">Form</a>
                     </li>
+                    <li>
+                        <a [routerLink] = "['/register']">Register</a>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -1,6 +1,7 @@
 ﻿<div class="container">
     <h3>Angular 2 Forms</h3>
     <!--novalidate: khong xac nhan gia tri khi submit-->
+
     <form #form="ngForm" (submit)="submitForm(form)" >
         
         <div class="form-group" [class.has-warning]="firstName.invalid && firstName.touched">

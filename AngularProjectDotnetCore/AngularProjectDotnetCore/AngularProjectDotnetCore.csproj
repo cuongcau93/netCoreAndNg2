@@ -15,7 +15,6 @@
     <Content Include="wwwroot\app\Form\form.component.html" />
     <Content Include="wwwroot\app\Form\form.component.ts" />
     <Content Include="wwwroot\app\Form\form.module.ts" />
-    <Content Include="wwwroot\app\Form\form.service.ts" />
     <Content Include="wwwroot\app\home\welcome.component.html" />
     <Content Include="wwwroot\app\home\welcome.component.ts" />
     <Content Include="wwwroot\app\models\employee.model.ts" />
@@ -24,6 +23,11 @@
     <Content Include="wwwroot\app\products\product-list.component.ts" />
     <Content Include="wwwroot\app\products\product.module.ts" />
     <Content Include="wwwroot\app\products\product.ts" />
+    <Content Include="wwwroot\app\register\register.component.css" />
+    <Content Include="wwwroot\app\register\register.component.html" />
+    <Content Include="wwwroot\app\register\register.component.ts" />
+    <Content Include="wwwroot\app\register\register.module.ts" />
+    <Content Include="wwwroot\app\register\register.service.ts" />
     <Content Include="wwwroot\app\shared\shared.module.ts" />
     <Content Include="wwwroot\app\shared\star.component.css" />
     <Content Include="wwwroot\app\shared\star.component.html" />

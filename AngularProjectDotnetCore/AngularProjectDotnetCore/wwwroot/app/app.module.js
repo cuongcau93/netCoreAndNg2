@@ -14,6 +14,7 @@ var welcome_component_1 = require("./home/welcome.component");
 var http_1 = require("@angular/http");
 var product_module_1 = require("./products/product.module");
 var form_module_1 = require("./Form/form.module");
+var register_module_1 = require("./register/register.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,7 +31,8 @@ AppModule = __decorate([
                 { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
             ]),
             product_module_1.ProductModule,
-            form_module_1.FormModule
+            form_module_1.FormModule,
+            register_module_1.RegisterModule
         ],
         declarations: [
             app_component_1.AppComponent,

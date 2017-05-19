@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { ProductModule } from "./products/product.module";
 import { ProductListComponent } from "./products/product-list.component";
 import { FormModule } from "./Form/form.module";
+import { RegisterModule } from "./register/register.module";
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { FormModule } from "./Form/form.module";
             { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
         ]),
         ProductModule,
-        FormModule
+        FormModule,
+        RegisterModule
     ],
     declarations: [
         AppComponent,
