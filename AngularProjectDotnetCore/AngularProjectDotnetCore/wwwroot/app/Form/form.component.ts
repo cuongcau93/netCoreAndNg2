@@ -1,58 +1,78 @@
-﻿import { Component, OnInit } from "@angular/core";
-import { Employee } from "../models/employee.model";
-import { FormPoster } from "./form-poster.service";
-import { NgForm } from "@angular/forms";
+﻿import { component, oninit } from "@angular/core";
+import { employee } from "../models/employee.model";
+import { formposter } from "./form-poster.service";
+import { ngform } from "@angular/forms";
 
-@Component({
-    moduleId: module.id,
-    templateUrl: 'form.component.html'
+@component({
+    moduleid: module.id,
+    templateurl: 'form.component.html'
 })
 
-export class FormComponent implements OnInit {
+export class formcomponent implements oninit {
 
-    constructor(private formPoster: FormPoster){}
+    constructor(private formposter: formposter){}
 
-    hasPrimaryLanguageError: boolean = false;
-    langues: string[] = ['English', 'Spanish', 'Other'];
-    model = new Employee('', '', true, "W2", "default","11/11/2015" );
+    hasprimarylanguageerror: boolean = false;
+    langues: string[] = ['english', 'spanish', 'other'];
+    model = new employee('', '', true, "w2", "default","11/11/2015" );
 
     product: any;
 
-    firstNameToUpperCae(value: string): void {
+    firstnametouppercae(value: string): void {
         if (value.length > 0)
         {
-            this.model.firstName = value.charAt(0).toUpperCase() + value.slice(1);
-            console.log(this.model.firstName);
+            this.model.firstname = value.charat(0).touppercase() + value.slice(1);
+            console.log(this.model.firstname);
         }
         else
-            this.model.firstName = value;
+            this.model.firstname = value;
     }
 
-    validatePrimaryLanguage(event: any) {
-        if (this.model.primaryLanguage === "default")
-            this.hasPrimaryLanguageError = true;
+    validateprimarylanguage(event: any) {
+        if (this.model.primarylanguage === "default")
+            this.hasprimarylanguageerror = true;
         else
-            this.hasPrimaryLanguageError = false;
-        console.log('lang: ' + this.model.primaryLanguage)
+            this.hasprimarylanguageerror = false;
+        console.log('lang: ' + this.model.primarylanguage)
     }
 
     //submit form
-    submitForm(form: NgForm) {
+    submitform(form: ngform) {
         //validate form
-        this.validatePrimaryLanguage(this.model.primaryLanguage);
-        if (this.hasPrimaryLanguageError)
+        this.validateprimarylanguage(this.model.primarylanguage);
+        if (this.hasprimarylanguageerror)
             return
 
         //console.log(form.value);
-        this.formPoster.postEmployeeForm(this.model)
+        this.formposter.postemployeeform(this.model)
             .subscribe(
                 data => console.log('success: ', data),
                 err => console.log('error: ', err)
             )
     }
 
-    ngOnInit(): void {
+    ngoninit(): void {
         
-        console.log("sss"+this.formPoster.getProducts());
+        console.log("sss"+this.formposter.getproducts());
     }
 }
+
+//import { Component } from '@angular/core';
+//@Component({
+//    selector: 'little-tour',
+//    template: `
+//    <input #newHero
+//      (keyup.enter)="addHero(newHero.value)"
+//      (blur)="addHero(newHero.value); newHero.value='' ">
+//    <button (click)="addHero(newHero.value)">Add</button>
+//    <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul>
+//  `
+//})
+//export class FormComponent {
+//    heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+//    addHero(newHero: string) {
+//        if (newHero) {
+//            this.heroes.push(newHero);
+//        }
+//    }
+//}

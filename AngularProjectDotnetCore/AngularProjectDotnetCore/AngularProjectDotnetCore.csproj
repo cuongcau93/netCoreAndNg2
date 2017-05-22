@@ -28,6 +28,7 @@
     <Content Include="wwwroot\app\register\register.component.ts" />
     <Content Include="wwwroot\app\register\register.module.ts" />
     <Content Include="wwwroot\app\register\register.service.ts" />
+    <Content Include="wwwroot\app\register\user.ts" />
     <Content Include="wwwroot\app\shared\shared.module.ts" />
     <Content Include="wwwroot\app\shared\star.component.css" />
     <Content Include="wwwroot\app\shared\star.component.html" />

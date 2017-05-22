@@ -5,8 +5,9 @@
     </div>
 
     <div class="panel-body">
-        <form #form ="ngForm" class="form-horizontal">
-            <div class="form-group">
+        <form #form ="ngForm" class="form-horizontal" (submit)="submitForm(form)" novalidate>
+            
+            <div class="form-group" [class.has-warning]="userName.invalid && userName.touched">
                 <label class="col-md-2 control-label"
                        for="userNameId">User Name</label>
                 <div class="col-md-8" >
@@ -15,11 +16,13 @@
                            type="text"
                            placeholder="User Name"
                            name="userName"
-                           pattern="......+"
+                           required
+                           pattern="...+"
                            #userName="ngModel"
+                           [(ngModel)] ="user.userName"
                            ngModel
                            />
-                    <div *ngIf="userName.invalid && userName.touched" class="alert alert-danger">
+                    <div *ngIf="userName.invalid && userName.touched">
                         User Name six or more characters.
                     </div>
                 </div>
@@ -27,46 +30,57 @@
 
             <div class="form-group">
                 <label class="col-md-2 control-label"
-                       for="userNameId">Email</label>
+                       for="emailId">Email</label>
                 <div class="col-md-8">
                     <input class="form-control"
-
                            id="emailId"
                            type="text"
                            placeholder="User Name (required)"
-                           name="email" 
-                           #userName="ngModel"
+                           name="email"
+                           required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                           #email="ngModel"
+                           [(ngModel)] ="user.email"
                            ngModel
                            />
+                    <div *ngIf="email.invalid && email.touched">
+                        Email invalid
+                    </div>
                 </div>
             </div>
 
-            <!--
             <div class="form-group">
                 <label class="col-md-2 control-label"
                        for="">Pass word</label>
-
                 <div class="col-md-8">
                     <input class="form-control"
-                           id="userNameId"
-                           type="text"
-                           placeholder="User Name (required)"
-                           name="passWord" />
+                           id="passwordId"
+                           type="password"
+                           placeholder="Password"
+                           name="passWord"
+                           required
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           #password="ngModel"
+                           [(ngModel)] ="user.password"
+                           ngModel
+                           />
+                    <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
+                        Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label"
                        for="">Gender</label>
-
                 <div class="radio col-md-8">
                     <label>
-                        <input type="radio" name="paymentType" value="W2"/>
-                        W2
+                        <input type="radio" name="gender" value="Male" [(ngModel)] ="user.gender"/>
+                        Male
                     </label>
                     <label>
-                        <input type="radio" name="paymentType" value="1099"/>
-                        1099
+                        <input type="radio" name="gender" value="FeMale" [(ngModel)] ="user.gender"/>
+                        Female
                     </label>
                 </div>
             </div>
@@ -75,21 +89,27 @@
                 <label class="col-md-2 control-label"
                        for="">Country</label>
                 <div class="col-md-8">
-                    <select class="form-control">
-                        <option value="default">Select a Language</option>
-                        <option *ngFor="let lang of langues">
-                            {{lang}}
+                    <select class="form-control" 
+                            name="country"
+                            [(ngModel)] ="user.country"
+                            >
+                        <option value="default">Select a Country</option>
+                        <option *ngFor="let country of countrys">
+                            {{country}}
                         </option>
                     </select>
                 </div>
-            </div>-->
+            </div>
+
             <div class="form-group">
                 <div >
                     <div class="col-md-4 col-md-offset-2">
                         <span>
                             <button class="btn btn-primary"
                                     type="submit"
-                                    style="width:80px;margin-right:10px">
+                                    style="width:80px;margin-right:10px"
+                                    (click)="checkRegister()"
+                                    [disabled] ="!form.valid">
                                 Register
                             </button>
                         </span>
@@ -102,6 +122,10 @@
                     </div>
                 </div>
             </div>
+
         </form>
+
+        Angular: {{form.value | json}}
+
     </div>    
 </div>

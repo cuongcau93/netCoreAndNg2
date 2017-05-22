@@ -1,4 +1,5 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
+import { IUser } from "./user";
 
 @Component({
     moduleId: module.id,
@@ -6,7 +7,25 @@
     styleUrls: ['register.component.css']
 })
 
-export class RegisterComponent{
+export class RegisterComponent implements OnInit {
+
+    countrys: string[] = ['Hà Nội', 'Hải Phòng', 'Vĩnh Phúc'];
+
     pageTitle: string = "Register";
-    userName: string = "sss";
+
+    user: IUser = {
+        userName: '',
+        email: '',
+        password: '',
+        gender: '',
+        country: 'default',
+    };
+
+    checkRegister(): void {
+  
+    }
+
+    ngOnInit(): void {
+        
+    }
 }

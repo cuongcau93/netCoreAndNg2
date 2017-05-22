@@ -9,9 +9,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var RegisterComponent = (function () {
     function RegisterComponent() {
+        this.countrys = ['Hà Nội', 'Hải Phòng', 'Vĩnh Phúc'];
         this.pageTitle = "Register";
-        this.userName = "sss";
+        this.user = {
+            userName: '',
+            email: '',
+            password: '',
+            gender: '',
+            country: 'default',
+        };
     }
+    RegisterComponent.prototype.checkRegister = function () {
+    };
+    RegisterComponent.prototype.ngOnInit = function () {
+    };
     return RegisterComponent;
 }());
 RegisterComponent = __decorate([
