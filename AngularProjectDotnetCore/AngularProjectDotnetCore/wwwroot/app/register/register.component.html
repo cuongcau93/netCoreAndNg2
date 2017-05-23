@@ -5,7 +5,7 @@
     </div>
 
     <div class="panel-body">
-        <form #form ="ngForm" class="form-horizontal" (submit)="submitForm(form)" novalidate>
+        <form #form ="ngForm" class="form-horizontal" (ngSubmit)="submitForm(form)" novalidate>
             
             <div class="form-group" [class.has-warning]="userName.invalid && userName.touched">
                 <label class="col-md-2 control-label"
@@ -85,13 +85,13 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="col-md-2 control-label"
-                       for="">Country</label>
+            <div class="form-group" [class.has-warning]="hasCountryError">
+                <label class="col-md-2 control-label">Country</label>
                 <div class="col-md-8">
                     <select class="form-control" 
                             name="country"
                             [(ngModel)] ="user.country"
+                            (blur) ="validateCountry($event)"
                             >
                         <option value="default">Select a Country</option>
                         <option *ngFor="let country of countrys">
@@ -108,14 +108,12 @@
                             <button class="btn btn-primary"
                                     type="submit"
                                     style="width:80px;margin-right:10px"
-                                    (click)="checkRegister()"
                                     [disabled] ="!form.valid">
                                 Register
                             </button>
                         </span>
                         <span>
-                            <a class="btn btn-default"
-                               >
+                            <a class="btn btn-default">
                                 Cancel
                             </a>
                         </span>

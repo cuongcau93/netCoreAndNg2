@@ -2,7 +2,7 @@
     <h3>Angular 2 Forms</h3>
     <!--novalidate: khong xac nhan gia tri khi submit-->
 
-    <form #form="ngForm" (submit)="submitForm(form)" >
+    <form #form="ngForm" (submit)="submitForm(form)" novalidate>
         
         <div class="form-group" [class.has-warning]="firstName.invalid && firstName.touched">
             <label class="control-label">First Name</label>

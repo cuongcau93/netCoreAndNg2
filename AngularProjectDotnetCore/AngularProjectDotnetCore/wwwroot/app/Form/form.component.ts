@@ -52,7 +52,8 @@ export class FormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        
+        //this.formPoster.getProducts()
+        //    .subscribe((product: any) => this.product = product);
         console.log("sss"+this.formPoster.getProducts());
     }
 }
