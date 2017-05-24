@@ -10,6 +10,10 @@
 
   <ItemGroup>
     <Content Include="wwwroot\app\assets\images\logo.jpg" />
+    <Content Include="wwwroot\app\customer\customer.component.html" />
+    <Content Include="wwwroot\app\customer\customer.component.ts" />
+    <Content Include="wwwroot\app\customer\customer.module.ts" />
+    <Content Include="wwwroot\app\customer\customer.ts" />
     <Content Include="wwwroot\app\Form\form-poster.service.ts" />
     <Content Include="wwwroot\app\Form\form.component.css" />
     <Content Include="wwwroot\app\Form\form.component.html" />

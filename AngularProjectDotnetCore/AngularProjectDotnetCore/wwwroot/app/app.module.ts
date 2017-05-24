@@ -10,6 +10,7 @@ import { ProductModule } from "./products/product.module";
 import { ProductListComponent } from "./products/product-list.component";
 import { FormModule } from "./Form/form.module";
 import { RegisterModule } from "./register/register.module";
+import { CustomerModule } from "./customer/customer.module";
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { RegisterModule } from "./register/register.module";
         ]),
         ProductModule,
         FormModule,
-        RegisterModule
+        RegisterModule,
+        CustomerModule
     ],
     declarations: [
         AppComponent,

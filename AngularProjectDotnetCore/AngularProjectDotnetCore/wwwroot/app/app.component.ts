@@ -20,6 +20,9 @@
                     <li>
                         <a [routerLink] = "['/register']">Register</a>
                     </li>
+                    <li>
+                        <a [routerLink] = "['/customer']">Customer</a>
+                    </li>
                 </ul>
             </div>
         </nav>

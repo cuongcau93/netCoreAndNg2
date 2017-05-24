@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     submitForm(form: NgForm): void {
         this.validateCountry(this.user.country);
         if (this.hasCountryError)
-            return;
+            return
             //this.router.navigate(['/products'])
 
     }
