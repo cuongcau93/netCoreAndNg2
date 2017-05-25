@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var customer_component_1 = require("./customer.component");
 var shared_module_1 = require("../shared/shared.module");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 var CustomerModule = (function () {
     function CustomerModule() {
     }
@@ -25,6 +26,7 @@ CustomerModule = __decorate([
                 { path: 'customer', component: customer_component_1.CustomerComponent },
             ]),
             shared_module_1.ShareModule,
+            forms_1.ReactiveFormsModule
         ]
     })
 ], CustomerModule);

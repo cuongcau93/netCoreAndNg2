@@ -2,6 +2,7 @@
 import { CustomerComponent } from "./customer.component";
 import { ShareModule } from "../shared/shared.module";
 import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { RouterModule } from "@angular/router";
             //},
         ]),
         ShareModule,
+        ReactiveFormsModule
     ]
 })
 
