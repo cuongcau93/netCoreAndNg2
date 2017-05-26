@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
         if (this.hasCountryError)
             return
             //this.router.navigate(['/products'])
-
     }
 
     ngOnInit(): void {
