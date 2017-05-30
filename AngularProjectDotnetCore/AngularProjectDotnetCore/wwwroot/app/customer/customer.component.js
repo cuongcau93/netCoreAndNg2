@@ -55,6 +55,13 @@ var CustomerComponent = (function () {
             minlength: 'The first name must be longer than 3 characters.'
         };
     }
+    Object.defineProperty(CustomerComponent.prototype, "addresses", {
+        get: function () {
+            return this.customerForm.get('addresses');
+        },
+        enumerable: true,
+        configurable: true
+    });
     CustomerComponent.prototype.testData = function () {
         //set value parameter full
         //this.customerForm.setValue({
@@ -80,7 +87,8 @@ var CustomerComponent = (function () {
             phone: ['', [forms_1.Validators.required]],
             notification: 'email',
             rating: ['', ratingRange(1, 5)],
-            sendCatalog: true
+            sendCatalog: true,
+            addresses: this.fb.array([this.buildAddress()])
         });
         this.customerForm.get('notification').valueChanges
             .subscribe(function (value) { return _this.setNotification(value); });
@@ -105,13 +113,13 @@ var CustomerComponent = (function () {
         //    sendCatalog: new FormControl(true)
         //});
     };
-    //populateTestData(): void {
-    //    this.customerForm.patchValue({
-    //        firstName: 'Jack',
-    //        lastName: 'Harkness',
-    //        sendCatalog: false
-    //    });
-    //}
+    CustomerComponent.prototype.populateTestData = function () {
+        this.customerForm.patchValue({
+            firstName: 'Jack',
+            lastName: 'Harkness',
+            sendCatalog: false
+        });
+    };
     CustomerComponent.prototype.save = function () {
         console.log(this.customerForm);
         console.log('Saved: ' + JSON.stringify(this.customerForm.value));
@@ -158,6 +166,20 @@ var CustomerComponent = (function () {
                 return console.log('lol' + key);
             }));
         }
+    };
+    //Refactor
+    CustomerComponent.prototype.buildAddress = function () {
+        return this.fb.group({
+            addressType: 'home',
+            street1: '',
+            street2: '',
+            city: '',
+            state: '',
+            zip: ''
+        });
+    };
+    CustomerComponent.prototype.addAddress = function () {
+        this.addresses.push(this.buildAddress());
     };
     return CustomerComponent;
 }());

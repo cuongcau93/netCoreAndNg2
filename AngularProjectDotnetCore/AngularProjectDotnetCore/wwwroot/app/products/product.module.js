@@ -12,6 +12,7 @@ var router_1 = require("@angular/router");
 var product_service_1 = require("./product.service");
 var shared_module_1 = require("../shared/shared.module");
 var product_filter_pipe_1 = require("./product-filter.pipe");
+var product_detail_component_1 = require("./product-detail.component");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -21,11 +22,17 @@ ProductModule = __decorate([
     core_1.NgModule({
         declarations: [
             product_list_component_1.ProductListComponent,
-            product_filter_pipe_1.ProductFilterPipe
+            product_filter_pipe_1.ProductFilterPipe,
+            product_detail_component_1.ProductDetailComponent
         ],
         imports: [
             router_1.RouterModule.forChild([
                 { path: 'products', component: product_list_component_1.ProductListComponent },
+                {
+                    path: 'product/: id',
+                    //canActivate: [ProductDetailGuard],
+                    component: product_detail_component_1.ProductDetailComponent
+                },
             ]),
             shared_module_1.ShareModule
         ],

@@ -22,6 +22,8 @@
     <Content Include="wwwroot\app\home\welcome.component.html" />
     <Content Include="wwwroot\app\home\welcome.component.ts" />
     <Content Include="wwwroot\app\models\employee.model.ts" />
+    <Content Include="wwwroot\app\products\product-detail.component.html" />
+    <Content Include="wwwroot\app\products\product-detail.component.ts" />
     <Content Include="wwwroot\app\products\product-filter.pipe.ts" />
     <Content Include="wwwroot\app\products\product-list.component.html" />
     <Content Include="wwwroot\app\products\product-list.component.ts" />

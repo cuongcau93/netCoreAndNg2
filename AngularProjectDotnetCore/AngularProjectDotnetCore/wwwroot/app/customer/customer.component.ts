@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { Customer } from "./customer";
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from "@angular/forms";
 
 import 'rxjs/add/operator/debounceTime';
 
@@ -44,6 +44,11 @@ export class CustomerComponent implements OnInit {
     emailMessage: string;
     emailMessageFirstName: string;
     emailMessageRating: string;
+
+    get addresses(): FormArray{
+        return <FormArray>this.customerForm.get('addresses');
+    }
+
     private validationMessage = {
         required: 'Please enter your email address.',
         pattern: 'Please enter a valid email address.'
@@ -58,6 +63,7 @@ export class CustomerComponent implements OnInit {
         required: 'Please enter your first name.',
         minlength: 'The first name must be longer than 3 characters.'
     };
+
     constructor(private fb: FormBuilder) { }
 
     testData(): void {
@@ -83,11 +89,12 @@ export class CustomerComponent implements OnInit {
             emailGroup: this.fb.group({
                 email: ['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+")]],
                 confirmEmail: ['', Validators.required],
-            }, {validator: emailMatcher}),
+            }, { validator: emailMatcher }),
             phone: ['', [Validators.required]],
             notification: 'email',
             rating: ['', ratingRange(1, 5)],
-            sendCatalog: true
+            sendCatalog: true,
+            addresses: this.fb.array( [this.buildAddress() ])
         });
 
         this.customerForm.get('notification').valueChanges
@@ -122,13 +129,13 @@ export class CustomerComponent implements OnInit {
         //});
     }
 
-    //populateTestData(): void {
-    //    this.customerForm.patchValue({
-    //        firstName: 'Jack',
-    //        lastName: 'Harkness',
-    //        sendCatalog: false
-    //    });
-    //}
+    populateTestData(): void {
+        this.customerForm.patchValue({
+            firstName: 'Jack',
+            lastName: 'Harkness',
+            sendCatalog: false
+        });
+    }
 
     save() {
         console.log(this.customerForm);
@@ -173,4 +180,19 @@ export class CustomerComponent implements OnInit {
         }
     }
 
+    //Refactor
+    buildAddress(): FormGroup {
+        return this.fb.group({
+            addressType: 'home',
+            street1: '',
+            street2: '',
+            city: '',
+            state: '',
+            zip: ''
+        });
+    }
+
+    addAddress(): void {
+        this.addresses.push(this.buildAddress());
+    }
 }
