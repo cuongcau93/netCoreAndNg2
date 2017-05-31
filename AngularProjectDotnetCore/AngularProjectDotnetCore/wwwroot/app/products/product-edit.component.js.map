@@ -1,0 +1,1 @@
+{"version":3,"file":"product-edit.component.js","sourceRoot":"","sources":["product-edit.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAO1C,IAAa,oBAAoB;IAAjC;IAEA,CAAC;IAAD,2BAAC;AAAD,CAAC,AAFD,IAEC;AAFY,oBAAoB;IALhC,gBAAS,CAAC;QACP,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,WAAW,EAAE,6BAA6B;KAC7C,CAAC;GAEW,oBAAoB,CAEhC;AAFY,oDAAoB"}

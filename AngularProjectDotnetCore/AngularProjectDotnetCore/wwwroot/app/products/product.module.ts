@@ -5,23 +5,30 @@ import { ProductService } from "./product.service";
 import { ShareModule } from "../shared/shared.module";
 import { ProductFilterPipe } from "./product-filter.pipe";
 import { ProductDetailComponent } from "./product-detail.component";
+import { ProductDetailGuard } from "./product-guard.service";
+import { ProductEditComponent } from "./product-edit.component";
 
 @NgModule({
 
     declarations: [
         ProductListComponent,
         ProductFilterPipe,
-        ProductDetailComponent
+        ProductDetailComponent,
+        ProductEditComponent
     ],
 
     imports: [
-
         RouterModule.forChild([
             { path: 'products', component: ProductListComponent },
             {
-                path: 'product/: id',
-                //canActivate: [ProductDetailGuard],
+                path: 'product/:id',
+                canActivate: [ProductDetailGuard],
                 component: ProductDetailComponent
+            },
+            {
+                path: 'productEdit/:id',
+                //canActivate: [ProductDetailGuard],
+                component: ProductEditComponent
             },
         ]),
         ShareModule
@@ -29,6 +36,8 @@ import { ProductDetailComponent } from "./product-detail.component";
 
     providers: [
         ProductService,
+        ProductDetailGuard
     ]
+
 })
 export class ProductModule{ }

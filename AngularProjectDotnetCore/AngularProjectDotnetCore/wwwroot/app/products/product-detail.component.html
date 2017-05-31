@@ -1,6 +1,5 @@
 ﻿<div class="panel panel-primary" *ngIf="product">
-    <h1>LoL</h1>
-    <!--<div class="panel-heading" style="font-size:large">
+    <div class="panel-heading" style="font-size:large">
         {{pageTitle + ": " + product.productName}}
     </div>
 
@@ -57,8 +56,9 @@
             <i class="glyphicon glyphicon-chevron-left"></i> Back
         </a>
         <a class="btn btn-primary" style="width:80px;margin-left:10px"
-           [routerLink]="['/productEdit', product.id]">
+           [routerLink]="['/productEdit', product.productId]">
             Edit
         </a>
-    </div>-->
+    </div>
+
 </div>

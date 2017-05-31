@@ -15,14 +15,16 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
+require("rxjs/add/observable/of");
 var ProductService = (function () {
     function ProductService(_http) {
         this._http = _http;
-        this._productUrl = '../api/products/product.json';
+        //private _productUrl = '../api/products/product.json';
+        this.baseUrl = 'http://592e6b1cb6b9fa00114e6ed0.mockapi.io/product';
     }
     ;
     ProductService.prototype.getProducts = function () {
-        return this._http.get(this._productUrl)
+        return this._http.get(this.baseUrl)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
             .catch(this.handleError);
@@ -30,6 +32,30 @@ var ProductService = (function () {
     ProductService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
+    };
+    ProductService.prototype.getProduct = function (id) {
+        if (id === 0) {
+            return Observable_1.Observable.of(this.initializeProduct());
+        }
+        ;
+        var url = this.baseUrl + "/" + id;
+        return this._http.get(url)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('getProduct: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.initializeProduct = function () {
+        // Return an initialized object
+        return {
+            productId: 0,
+            productName: null,
+            productCode: null,
+            releaseDate: null,
+            price: null,
+            description: null,
+            starRating: null,
+            imageUrl: null
+        };
     };
     return ProductService;
 }());

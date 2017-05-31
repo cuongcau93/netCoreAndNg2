@@ -30,6 +30,8 @@ var ProductListComponent = (function () {
         var _this = this;
         this._productService.getProducts()
             .subscribe(function (product) { return _this.product = product; });
+        this._productService.getProduct(1)
+            .subscribe(function (product) { return _this.pro = product; });
     };
     return ProductListComponent;
 }());

@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
     constructor(private _productService: ProductService) { }
 
     product: IProduct[];
+    pro: IProduct;
     showImage: boolean = false;
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -31,7 +32,11 @@ export class ProductListComponent implements OnInit {
     ngOnInit(): void {
         this._productService.getProducts()
             .subscribe((product: IProduct[]) => this.product = product);
-    }
 
+        
+        this._productService.getProduct(1)
+            .subscribe((product: IProduct) => this.pro = product);
+
+    }
 
 }

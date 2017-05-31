@@ -13,6 +13,8 @@ var product_service_1 = require("./product.service");
 var shared_module_1 = require("../shared/shared.module");
 var product_filter_pipe_1 = require("./product-filter.pipe");
 var product_detail_component_1 = require("./product-detail.component");
+var product_guard_service_1 = require("./product-guard.service");
+var product_edit_component_1 = require("./product-edit.component");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -23,21 +25,28 @@ ProductModule = __decorate([
         declarations: [
             product_list_component_1.ProductListComponent,
             product_filter_pipe_1.ProductFilterPipe,
-            product_detail_component_1.ProductDetailComponent
+            product_detail_component_1.ProductDetailComponent,
+            product_edit_component_1.ProductEditComponent
         ],
         imports: [
             router_1.RouterModule.forChild([
                 { path: 'products', component: product_list_component_1.ProductListComponent },
                 {
-                    path: 'product/: id',
-                    //canActivate: [ProductDetailGuard],
+                    path: 'product/:id',
+                    canActivate: [product_guard_service_1.ProductDetailGuard],
                     component: product_detail_component_1.ProductDetailComponent
+                },
+                {
+                    path: 'productEdit/:id',
+                    //canActivate: [ProductDetailGuard],
+                    component: product_edit_component_1.ProductEditComponent
                 },
             ]),
             shared_module_1.ShareModule
         ],
         providers: [
             product_service_1.ProductService,
+            product_guard_service_1.ProductDetailGuard
         ]
     })
 ], ProductModule);
