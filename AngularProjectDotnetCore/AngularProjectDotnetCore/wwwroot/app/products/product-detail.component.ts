@@ -33,12 +33,12 @@ export class ProductDetailComponent implements OnInit {
 
         //this.getProduct(id);
     }
-
+        
     getProduct(id: number) {
         this._productService.getProduct(id)
             .subscribe((product: IProduct) => this.product = product);
     }
-
+        
     onBack(): void {
         this.router.navigate(['/products']);
     }

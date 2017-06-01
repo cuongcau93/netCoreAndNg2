@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot/app\products\product-edit.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\app\assets\images\logo.jpg" />
     <Content Include="wwwroot\app\customer\customer.component.html" />
     <Content Include="wwwroot\app\customer\customer.component.ts" />
@@ -25,13 +29,12 @@
     <Content Include="wwwroot\app\products\product-detail.component.html" />
     <Content Include="wwwroot\app\products\product-detail.component.ts" />
     <Content Include="wwwroot\app\products\product-edit.component.html" />
+    <Content Include="wwwroot\app\products\product-edit.component.js" />
     <Content Include="wwwroot\app\products\product-edit.component.ts" />
-    <Content Include="wwwroot\app\products\product-edit.html" />
     <Content Include="wwwroot\app\products\product-filter.pipe.ts" />
     <Content Include="wwwroot\app\products\product-guard.service.ts" />
     <Content Include="wwwroot\app\products\product-list.component.html" />
     <Content Include="wwwroot\app\products\product-list.component.ts" />
-    <Content Include="wwwroot\app\products\product-list.ts" />
     <Content Include="wwwroot\app\products\product.module.ts" />
     <Content Include="wwwroot\app\products\product.ts" />
     <Content Include="wwwroot\app\register\register.component.css" />
