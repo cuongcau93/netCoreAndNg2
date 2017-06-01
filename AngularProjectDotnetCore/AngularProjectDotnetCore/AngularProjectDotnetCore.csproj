@@ -28,7 +28,6 @@
     <Content Include="wwwroot\app\models\employee.model.ts" />
     <Content Include="wwwroot\app\products\product-detail.component.html" />
     <Content Include="wwwroot\app\products\product-detail.component.ts" />
-    <Content Include="wwwroot\app\products\product-edit.component.html" />
     <Content Include="wwwroot\app\products\product-edit.component.js" />
     <Content Include="wwwroot\app\products\product-edit.component.ts" />
     <Content Include="wwwroot\app\products\product-filter.pipe.ts" />
