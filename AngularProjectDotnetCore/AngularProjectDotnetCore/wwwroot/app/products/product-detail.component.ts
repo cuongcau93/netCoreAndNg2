@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
     private sub: Subscription;
 
     pageTitle: string = 'Product Detail';
+
     constructor(private _route: ActivatedRoute,
         private _productService: ProductService,
         private router: Router) { }
