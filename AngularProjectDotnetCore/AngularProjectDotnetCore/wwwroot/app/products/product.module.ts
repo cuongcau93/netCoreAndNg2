@@ -6,7 +6,8 @@ import { ShareModule } from "../shared/shared.module";
 import { ProductFilterPipe } from "./product-filter.pipe";
 import { ProductDetailComponent } from "./product-detail.component";
 import { ProductDetailGuard } from "./product-guard.service";
-import { ProductEditComponent } from "./product-edit.component";
+import { ProductEditComponent } from "./productEdit.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
 
@@ -31,7 +32,8 @@ import { ProductEditComponent } from "./product-edit.component";
                 component: ProductEditComponent
             },
         ]),
-        ShareModule
+        ShareModule,
+        ReactiveFormsModule
     ],
 
     providers: [

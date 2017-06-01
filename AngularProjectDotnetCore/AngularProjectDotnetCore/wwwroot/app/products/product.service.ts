@@ -38,6 +38,17 @@ export class ProductService {
             .catch(this.handleError);
     }
 
+    getPro(id: number): Observable<IProduct> {
+        if (id === 0) {
+            return Observable.of(this.initializeProduct());
+        };
+        const url = `${this.baseUrl}/${id}`;
+        return this._http.get(url)
+            .map((response: Response) => <IProduct[]>response.json())
+            .do(data => console.log('lol: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
     initializeProduct(): IProduct {
         // Return an initialized object
         return {

@@ -44,6 +44,17 @@ var ProductService = (function () {
             .do(function (data) { return console.log('getProduct: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
+    ProductService.prototype.getPro = function (id) {
+        if (id === 0) {
+            return Observable_1.Observable.of(this.initializeProduct());
+        }
+        ;
+        var url = this.baseUrl + "/" + id;
+        return this._http.get(url)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('lol: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     ProductService.prototype.initializeProduct = function () {
         // Return an initialized object
         return {

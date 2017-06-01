@@ -1,0 +1,37 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="panel-body">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="saveProduct()"
+              [formGroup]="productFormEdit"
+              >
+
+            <fieldset>
+                <div class="form-group"
+                     >
+                    <label class="col-md-2 control-label" for="productNameId">Product Name</label>
+                    
+                    <div class="col-md-8">
+
+                        <input class="form-control"
+                               id="productNameId"
+                               type="text"
+                               placeholder="Name (required)"
+                               formControlName="productName" />
+
+                        <span class="help-block" *ngIf="product">
+                            {{product.productName}}
+                        </span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+        </form>
+        Angular: {{productFormEdit.value | json}}
+    </div>
+</div>

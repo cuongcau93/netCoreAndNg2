@@ -14,7 +14,8 @@ var shared_module_1 = require("../shared/shared.module");
 var product_filter_pipe_1 = require("./product-filter.pipe");
 var product_detail_component_1 = require("./product-detail.component");
 var product_guard_service_1 = require("./product-guard.service");
-var product_edit_component_1 = require("./product-edit.component");
+var productEdit_component_1 = require("./productEdit.component");
+var forms_1 = require("@angular/forms");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -26,7 +27,7 @@ ProductModule = __decorate([
             product_list_component_1.ProductListComponent,
             product_filter_pipe_1.ProductFilterPipe,
             product_detail_component_1.ProductDetailComponent,
-            product_edit_component_1.ProductEditComponent
+            productEdit_component_1.ProductEditComponent
         ],
         imports: [
             router_1.RouterModule.forChild([
@@ -39,10 +40,11 @@ ProductModule = __decorate([
                 {
                     path: 'productEdit/:id',
                     //canActivate: [ProductDetailGuard],
-                    component: product_edit_component_1.ProductEditComponent
+                    component: productEdit_component_1.ProductEditComponent
                 },
             ]),
-            shared_module_1.ShareModule
+            shared_module_1.ShareModule,
+            forms_1.ReactiveFormsModule
         ],
         providers: [
             product_service_1.ProductService,
