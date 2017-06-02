@@ -23,14 +23,13 @@
                                placeholder="Name (required)"
                                formControlName="productName" />
 
-                        <span class="help-block" *ngIf="product">
-                            {{product.productName}}
+                        <span class="help-block">
+                            
                         </span>
-                    </div>
 
+                    </div>
                 </div>
             </fieldset>
-
         </form>
         Angular: {{productFormEdit.value | json}}
     </div>

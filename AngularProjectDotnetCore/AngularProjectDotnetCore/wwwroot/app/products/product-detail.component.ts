@@ -29,14 +29,13 @@ export class ProductDetailComponent implements OnInit {
             }
         )
 
-        console.log("id: =" + id);
-
         //this.getProduct(id);
     }
         
     getProduct(id: number) {
         this._productService.getProduct(id)
             .subscribe((product: IProduct) => this.product = product);
+
     }
 
     onBack(): void {

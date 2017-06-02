@@ -159,7 +159,7 @@ export class CustomerComponent implements OnInit {
                 this.validationMessage[key]).join(' ');     
         }
     }
-
+    
     setMessageFirstName(c: AbstractControl): void {
         this.emailMessageFirstName = '';
         if ((c.touched || c.dirty) && c.errors) {

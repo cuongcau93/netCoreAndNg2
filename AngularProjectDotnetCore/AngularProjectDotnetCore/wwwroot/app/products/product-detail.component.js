@@ -25,11 +25,8 @@ var ProductDetailComponent = (function () {
         this.sub = this._route.params.subscribe(function (params) {
             var id2 = +params['id'];
             _this.getProduct(id2);
+            console.log('lll' + _this.product);
         });
-        if (this.product) {
-            console.log('Em oi' + this.product);
-        }
-        console.log("id: =" + id);
         //this.getProduct(id);
     };
     ProductDetailComponent.prototype.getProduct = function (id) {

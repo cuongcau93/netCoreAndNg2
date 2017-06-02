@@ -40,7 +40,23 @@ var ProductEditComponent = (function () {
     ProductEditComponent.prototype.getProduct = function (id) {
         var _this = this;
         this._productServices.getPro(id)
-            .subscribe(function (product) { return _this.product = product; });
+            .subscribe(function (product) { _this.onProductRetrieved(product); });
+    };
+    ProductEditComponent.prototype.onProductRetrieved = function (product) {
+        if (this.productFormEdit) {
+            this.productFormEdit.reset();
+        }
+        this.product = product;
+        if (this.product.productId === 0) {
+            this.pageTitle = 'Add Product';
+        }
+        else {
+            this.pageTitle = "Edit Product: " + this.product.productName;
+        }
+        //Update the data on the form
+        this.productFormEdit.patchValue({
+            productName: this.product.productName
+        });
     };
     return ProductEditComponent;
 }());
