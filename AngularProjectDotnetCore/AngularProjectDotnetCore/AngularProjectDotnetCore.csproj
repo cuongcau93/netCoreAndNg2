@@ -27,6 +27,7 @@
     <Content Include="wwwroot\app\home\welcome.component.ts" />
     <Content Include="wwwroot\app\models\employee.model.ts" />
     <Content Include="wwwroot\app\products\generic-validator.ts" />
+    <Content Include="wwwroot\app\products\number.validator.ts" />
     <Content Include="wwwroot\app\products\product-detail.component.html" />
     <Content Include="wwwroot\app\products\product-detail.component.ts" />
     <Content Include="wwwroot\app\products\product-filter.pipe.ts" />
@@ -43,6 +44,7 @@
     <Content Include="wwwroot\app\register\register.module.ts" />
     <Content Include="wwwroot\app\register\register.service.ts" />
     <Content Include="wwwroot\app\register\user.ts" />
+    <Content Include="wwwroot\app\shared\number.validator.ts" />
     <Content Include="wwwroot\app\shared\shared.module.ts" />
     <Content Include="wwwroot\app\shared\star.component.css" />
     <Content Include="wwwroot\app\shared\star.component.html" />

@@ -25,7 +25,6 @@ var ProductDetailComponent = (function () {
         this.sub = this._route.params.subscribe(function (params) {
             var id2 = +params['id'];
             _this.getProduct(id2);
-            console.log('lll' + _this.product);
         });
         //this.getProduct(id);
     };

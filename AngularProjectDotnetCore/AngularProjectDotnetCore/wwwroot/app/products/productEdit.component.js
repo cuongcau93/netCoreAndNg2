@@ -13,6 +13,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var product_service_1 = require("./product.service");
 var forms_1 = require("@angular/forms");
+var generic_validator_1 = require("./generic-validator");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/observable/fromEvent");
+require("rxjs/add/observable/merge");
+var number_validator_1 = require("../shared/number.validator");
 var ProductEditComponent = (function () {
     function ProductEditComponent(_route, _productServices, router, fb) {
         this._route = _route;
@@ -21,13 +26,39 @@ var ProductEditComponent = (function () {
         this.fb = fb;
         this.pageTitle = 'Product Edit';
         this.displayMessage = {};
+        this.validationMessages = {
+            productName: {
+                required: 'Product name is required.',
+                minlength: 'Product name must be at least three characters.',
+                maxlength: 'Product name cannot exceed 50 characters.'
+            },
+            productCode: {
+                required: 'Product code is required.'
+            },
+            starRating: {
+                range: 'Rate the product between 1 (lowest) and 5 (highest).'
+            }
+        };
+        this.genericValidator = new generic_validator_1.GenericValidator(this.validationMessages);
     }
+    Object.defineProperty(ProductEditComponent.prototype, "tags", {
+        get: function () {
+            return this.productFormEdit.get('tags');
+        },
+        enumerable: true,
+        configurable: true
+    });
     ProductEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.productFormEdit = this.fb.group({
             productName: ['', [forms_1.Validators.required,
                     forms_1.Validators.minLength(3),
-                    forms_1.Validators.maxLength(50)]]
+                    forms_1.Validators.maxLength(50)]],
+            productCode: ['', forms_1.Validators.required],
+            starRating: ['', number_validator_1.NumberValidators.range(1, 5)],
+            tags: this.fb.array([]),
+            description: ''
+            //starRating: ['', NumberValidators.range(1, 5)]
         });
         this.sub = this._route.params.subscribe(function (params) {
             var id = +params['id'];
@@ -55,8 +86,26 @@ var ProductEditComponent = (function () {
         }
         //Update the data on the form
         this.productFormEdit.patchValue({
-            productName: this.product.productName
+            productName: this.product.productName,
+            productCode: this.product.productCode,
+            starRating: this.product.starRating,
+            description: this.product.description
         });
+        this.productFormEdit.setControl('tags', this.fb.array(this.product.tags || []));
+    };
+    ProductEditComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        // Watch for the blur event from any input element on the form.
+        var controlBlurs = this.formInputElements
+            .map(function (formControl) { return Observable_1.Observable.fromEvent(formControl.nativeElement, 'blur'); });
+        console.log('control: ' + controlBlurs);
+        // Merge the blur evemt observable with the valueChanges observable
+        Observable_1.Observable.merge.apply(Observable_1.Observable, [this.productFormEdit.valueChanges].concat(controlBlurs)).debounceTime(800).subscribe(function (value) {
+            _this.displayMessage = _this.genericValidator.processMessages(_this.productFormEdit);
+        });
+    };
+    ProductEditComponent.prototype.addTag = function () {
+        this.tags.push(new forms_1.FormControl());
     };
     return ProductEditComponent;
 }());
