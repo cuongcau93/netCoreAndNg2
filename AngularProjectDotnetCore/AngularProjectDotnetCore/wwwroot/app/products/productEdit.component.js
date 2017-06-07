@@ -65,12 +65,12 @@ var ProductEditComponent = (function () {
             _this.getProduct(id);
         });
         this.productFormEdit.patchValue({
-            productName: 'LOL'
+            productName: ''
         });
     };
     ProductEditComponent.prototype.getProduct = function (id) {
         var _this = this;
-        this._productServices.getPro(id)
+        this._productServices.getProduct(id)
             .subscribe(function (product) { _this.onProductRetrieved(product); });
     };
     ProductEditComponent.prototype.onProductRetrieved = function (product) {
@@ -106,6 +106,34 @@ var ProductEditComponent = (function () {
     };
     ProductEditComponent.prototype.addTag = function () {
         this.tags.push(new forms_1.FormControl());
+    };
+    ProductEditComponent.prototype.saveProduct = function () {
+        var _this = this;
+        if (this.productFormEdit.dirty && this.productFormEdit.valid) {
+            var p = Object.assign({}, this.product, this.productFormEdit.value);
+            this._productServices.saveProduct(p)
+                .subscribe(function () { return _this.onSaveComplete(); }, function (error) { return _this.errorMessage = error; });
+        }
+        else if (!this.productFormEdit.dirty) {
+            this.onSaveComplete();
+        }
+    };
+    ProductEditComponent.prototype.deleteProduct = function () {
+        var _this = this;
+        if (this.product.productId === 0) {
+            this.onSaveComplete();
+        }
+        else {
+            if (confirm("Really delete the product: " + this.product.productName + "?")) {
+                this._productServices.deleteProduct(this.product.productId)
+                    .subscribe(function () { return _this.onSaveComplete(); }, function (error) { return _this.errorMessage = error; });
+            }
+        }
+    };
+    ProductEditComponent.prototype.onSaveComplete = function () {
+        // Reset the form to clear the flags
+        this.productFormEdit.reset();
+        this.router.navigate(['/products']);
     };
     return ProductEditComponent;
 }());

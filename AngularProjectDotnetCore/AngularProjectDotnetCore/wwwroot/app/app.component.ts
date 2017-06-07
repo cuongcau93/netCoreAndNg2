@@ -15,6 +15,9 @@
                         <a [routerLink] = "['/products']">Product List</a>
                     </li>
                     <li>
+                        <a [routerLink]="['/productEdit/0']">Add Product</a>
+                    </li>
+                    <li>
                         <a [routerLink] = "['/form']">Form</a>
                     </li>
                     <li>

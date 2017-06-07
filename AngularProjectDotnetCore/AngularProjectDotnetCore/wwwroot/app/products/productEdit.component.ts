@@ -23,15 +23,14 @@ export class ProductEditComponent implements OnInit, AfterViewInit {
     pageTitle: string = 'Product Edit';
     productFormEdit: FormGroup;
     private genericValidator: GenericValidator;
-
+    errorMessage: string;
     displayMessage: { [key: string]: string } = {};
     private validationMessages: { [key: string]: { [key: string]: string } };
+    @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
     get tags(): FormArray {
         return <FormArray>this.productFormEdit.get('tags');
     }
-
-    @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
     constructor(private _route: ActivatedRoute,
         private _productServices: ProductService,
@@ -77,12 +76,12 @@ export class ProductEditComponent implements OnInit, AfterViewInit {
         );
 
         this.productFormEdit.patchValue({
-            productName: 'LOL'
+            productName: ''
         });
     }
 
     getProduct(id: number) {
-        this._productServices.getPro(id)
+        this._productServices.getProduct(id)
             .subscribe((product: IProduct) => { this.onProductRetrieved(product) })
     }
 
@@ -125,6 +124,39 @@ export class ProductEditComponent implements OnInit, AfterViewInit {
 
     addTag(): void {
         this.tags.push(new FormControl());
+    }
+
+    saveProduct(): void {
+        if (this.productFormEdit.dirty && this.productFormEdit.valid) {
+            let p = Object.assign({}, this.product, this.productFormEdit.value);
+            this._productServices.saveProduct(p)
+                .subscribe(
+                    () => this.onSaveComplete(),
+                    (error: any) => this.errorMessage = <any>error
+                );
+        } else if (!this.productFormEdit.dirty) {
+            this.onSaveComplete();
+        }
+    }
+
+    deleteProduct(): void {
+        if (this.product.productId === 0) {
+            this.onSaveComplete();
+        } else {
+            if (confirm(`Really delete the product: ${this.product.productName}?`)) {
+                this._productServices.deleteProduct(this.product.productId)
+                    .subscribe(
+                    () => this.onSaveComplete(),
+                    (error: any) => this.errorMessage = <any>error
+                    );
+            }
+        }
+    }
+
+    onSaveComplete(): void {
+        // Reset the form to clear the flags
+        this.productFormEdit.reset();
+        this.router.navigate(['/products']);
     }
 
 }

@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
     imageMargin: number = 2;
     pageTitle: string = 'Product List';
 
-    listFiter: string = 'Saw';
+    listFiter: string = '';
 
     toggleImage(): void {
         this.showImage = !this.showImage;

@@ -23,10 +23,13 @@ var ProductService = (function () {
         this.baseUrl = 'http://592e6b1cb6b9fa00114e6ed0.mockapi.io/product';
     }
     ;
+    ProductService.prototype.extractData = function (response) {
+        var body = response.json();
+        return body || {};
+    };
     ProductService.prototype.getProducts = function () {
         return this._http.get(this.baseUrl)
-            .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
+            .map(this.extractData)
             .catch(this.handleError);
     };
     ProductService.prototype.handleError = function (error) {
@@ -41,18 +44,6 @@ var ProductService = (function () {
         var url = this.baseUrl + "/" + id;
         return this._http.get(url)
             .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('getProduct: ' + JSON.stringify(data)); })
-            .catch(this.handleError);
-    };
-    ProductService.prototype.getPro = function (id) {
-        if (id === 0) {
-            return Observable_1.Observable.of(this.initializeProduct());
-        }
-        ;
-        var url = this.baseUrl + "/" + id;
-        return this._http.get(url)
-            .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('lol: ' + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     ProductService.prototype.initializeProduct = function () {
@@ -67,6 +58,35 @@ var ProductService = (function () {
             starRating: null,
             imageUrl: null
         };
+    };
+    ProductService.prototype.createProduct = function (product, options) {
+        product.productId = undefined;
+        return this._http.post(this.baseUrl, product, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    ProductService.prototype.updateProduct = function (product, options) {
+        var url = this.baseUrl + "/" + product.productId;
+        return this._http.put(url, product, options)
+            .map(this.extractData)
+            .do(function (data) { return console.log('update Product: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.saveProduct = function (product) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        if (product.productId === 0) {
+            return this.createProduct(product, options);
+        }
+        return this.updateProduct(product, options);
+    };
+    ProductService.prototype.deleteProduct = function (id) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var url = this.baseUrl + "/" + id;
+        return this._http.delete(url, options)
+            .do(function (data) { return console.log('deleteProduct: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
     };
     return ProductService;
 }());
