@@ -4,8 +4,11 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
+
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+
 
 @Injectable()
 export class ProductService {
@@ -18,6 +21,7 @@ export class ProductService {
         let body = <IProduct>response.json();
         return body || {}
     }
+
 
     getProducts(): Observable<IProduct[]> {
         return this._http.get(this.baseUrl)
@@ -89,5 +93,4 @@ export class ProductService {
             .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
-
 }

@@ -40,6 +40,5 @@ import { ReactiveFormsModule } from "@angular/forms";
         ProductService,
         ProductDetailGuard
     ]
-
 })
 export class ProductModule{ }

@@ -18,7 +18,7 @@ var ProductListComponent = (function () {
         this.imageWidth = 50;
         this.imageMargin = 2;
         this.pageTitle = 'Product List';
-        this.listFiter = 'Saw';
+        this.listFiter = '';
     }
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;

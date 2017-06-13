@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
+require("rxjs/add/operator/filter");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/of");
 var ProductService = (function () {
