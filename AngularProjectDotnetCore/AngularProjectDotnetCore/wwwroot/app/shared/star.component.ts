@@ -25,5 +25,4 @@ export class StarComponent implements OnChanges, OnInit {
     ngOnInit(): void {
         //console.log('lol'+this.ratingClicked);
     }
-
 }

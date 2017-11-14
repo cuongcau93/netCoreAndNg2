@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { ProductService } from "./product.service";
 import { IProduct } from "./product";
+import { ShareModule } from "../shared/shared.module";
 
 @Component({
     moduleId: module.id,
@@ -32,11 +33,9 @@ export class ProductListComponent implements OnInit {
     ngOnInit(): void {
         this._productService.getProducts()
             .subscribe((product: IProduct[]) => this.product = product);
-
         
         this._productService.getProduct(1)
             .subscribe((product: IProduct) => this.pro = product);
-
     }
 
 }

@@ -1,0 +1,20 @@
+﻿body {
+    background: red;
+}
+
+.panel-content{
+    padding: 10px 25px;
+}
+
+.edit{
+    padding: 10px 25px;
+    margin-left: 90%;
+}
+
+.name-checkbox {
+    width: 1px;
+}
+
+.icon-checkbox{
+    text-align: center;
+}

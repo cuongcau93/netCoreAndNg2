@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -10,6 +11,8 @@
 
   <ItemGroup>
     <Content Remove="wwwroot/app\products\product-edit.component.ts" />
+    <Content Remove="wwwroot\app\contactForm\contactForm.component.ts" />
+    <Content Remove="wwwroot\app\contactForm\contactForm.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +26,9 @@
     <Content Include="wwwroot\app\Form\form.component.html" />
     <Content Include="wwwroot\app\Form\form.component.ts" />
     <Content Include="wwwroot\app\Form\form.module.ts" />
+    <Content Include="wwwroot\app\home\welcome.component.css" />
     <Content Include="wwwroot\app\home\welcome.component.html" />
+    <Content Include="wwwroot\app\home\welcome.component.scss" />
     <Content Include="wwwroot\app\home\welcome.component.ts" />
     <Content Include="wwwroot\app\models\employee.model.ts" />
     <Content Include="wwwroot\app\products\generic-validator.ts" />
@@ -48,6 +53,10 @@
     <Content Include="wwwroot\app\shared\star.component.css" />
     <Content Include="wwwroot\app\shared\star.component.html" />
     <Content Include="wwwroot\app\shared\star.component.ts" />
+    <Content Include="wwwroot\app\summernote\summernote.component.css" />
+    <Content Include="wwwroot\app\summernote\summernote.component.html" />
+    <Content Include="wwwroot\app\summernote\summernote.component.ts" />
+    <Content Include="wwwroot\app\summernote\summernote.module.ts" />
   </ItemGroup>
   
   <ItemGroup>
@@ -58,9 +67,14 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="1.1.1" />
+	<PackageReference Include="summernote" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\app\contactForm\contactForm.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\contactForm\contactForm.module.ts" />
   </ItemGroup>
 
 </Project>

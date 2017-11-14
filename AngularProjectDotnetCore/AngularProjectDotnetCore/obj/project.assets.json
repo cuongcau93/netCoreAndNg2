@@ -1,7 +1,10 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
+      "FontAwesome/4.2.0": {
+        "type": "package"
+      },
       "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {
@@ -1850,6 +1853,12 @@
             "assetType": "native",
             "rid": "ubuntu.16.10-x64"
           }
+        }
+      },
+      "summernote/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "FontAwesome": "4.2.0"
         }
       },
       "System.AppContext/4.3.0": {
@@ -3756,6 +3765,23 @@
     }
   },
   "libraries": {
+    "FontAwesome/4.2.0": {
+      "sha512": "Q7zY9YJV4k2DoJJyw/hxcdKqEKGMwn+woS/g50meo2Tw3DqTtBtlRnuDW70DItQTW33fh+urfGJe/39qXNQy/g==",
+      "type": "package",
+      "path": "fontawesome/4.2.0",
+      "files": [
+        "Content/Content/font-awesome.css",
+        "Content/Content/font-awesome.min.css",
+        "Content/fonts/FontAwesome.otf",
+        "Content/fonts/fontawesome-webfont.eot",
+        "Content/fonts/fontawesome-webfont.svg",
+        "Content/fonts/fontawesome-webfont.ttf",
+        "Content/fonts/fontawesome-webfont.woff",
+        "fontawesome.4.2.0.nupkg.sha512",
+        "fontawesome.nuspec",
+        "tools/install.ps1"
+      ]
+    },
     "Libuv/1.9.1": {
       "sha512": "uqX2Frwf9PW8MaY7PRNY6HM5BpW1D8oj1EdqzrmbEFD5nH63Yat3aEjN/tws6Tw6Fk7LwmLBvtUh32tTeTaHiA==",
       "type": "package",
@@ -5352,6 +5378,21 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.1.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "summernote/1.0.3": {
+      "sha512": "A0Wy2I3dzjZsCdqjG22iQ34XeAWB/+JksXAa46AUeCoBV38dFK+ZU8yw2q83BTgpyBXm57/FfIdbzlbGYph6eQ==",
+      "type": "package",
+      "path": "summernote/1.0.3",
+      "files": [
+        "content/Scripts/summernote/plugin/summernote-ext-hello.js",
+        "content/Scripts/summernote/plugin/summernote-ext-hint.js",
+        "content/Scripts/summernote/plugin/summernote-ext-video.js",
+        "content/Scripts/summernote/summernote.css",
+        "content/Scripts/summernote/summernote.js",
+        "content/Scripts/summernote/summernote.min.js",
+        "summernote.1.0.3.nupkg.sha512",
+        "summernote.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -9899,7 +9940,8 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 1.1.1",
       "Microsoft.Extensions.Logging.Debug >= 1.1.1",
       "Microsoft.NETCore.App >= 1.1.2",
-      "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.0"
+      "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.0",
+      "summernote >= 1.0.3"
     ]
   },
   "packageFolders": {
@@ -9907,19 +9949,37 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
       "projectName": "AngularProjectDotnetCore",
       "projectPath": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\AngularProjectDotnetCore.csproj",
+      "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\123\\Documents\\GitHub\\netCoreAndNg2\\AngularProjectDotnetCore\\AngularProjectDotnetCore\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -9936,6 +9996,10 @@
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "1.1.1"
+          },
+          "summernote": {
+            "target": "Package",
+            "version": "1.0.3"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",

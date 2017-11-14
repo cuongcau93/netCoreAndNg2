@@ -16,6 +16,7 @@ var product_module_1 = require("./products/product.module");
 var form_module_1 = require("./Form/form.module");
 var register_module_1 = require("./register/register.module");
 var customer_module_1 = require("./customer/customer.module");
+var contactForm_module_1 = require("./contactForm/contactForm.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,12 +35,15 @@ AppModule = __decorate([
             product_module_1.ProductModule,
             form_module_1.FormModule,
             register_module_1.RegisterModule,
-            customer_module_1.CustomerModule
+            customer_module_1.CustomerModule,
+            contactForm_module_1.ContactFormModule
+            //SummernoteModule
         ],
         declarations: [
             app_component_1.AppComponent,
             welcome_component_1.WelcomeComponent
         ],
+        //providers: [{ provide: APP_BASE_HREF, useValue: '/Test' }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

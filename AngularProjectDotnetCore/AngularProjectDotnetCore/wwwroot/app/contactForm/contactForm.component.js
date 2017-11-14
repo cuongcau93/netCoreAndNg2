@@ -7,17 +7,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var WelcomeComponent = (function () {
-    function WelcomeComponent() {
-        this.pageTitle = 'Welcome';
+var ContactFormComponent = (function () {
+    function ContactFormComponent() {
+        this.lstContact = ["Nguyen", "Manh", "Cuong"];
     }
-    return WelcomeComponent;
+    ContactFormComponent.prototype.ContactFormComponent = function () {
+    };
+    ContactFormComponent.prototype.ngOnInit = function () {
+        console.log('123');
+    };
+    return ContactFormComponent;
 }());
-WelcomeComponent = __decorate([
+ContactFormComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/home/welcome.component.html',
-        styleUrls: ['app/home/welcome.component.css']
+        moduleId: module.id,
+        templateUrl: 'contactForm.component.html',
+        styleUrls: ['contactForm.component.css']
     })
-], WelcomeComponent);
-exports.WelcomeComponent = WelcomeComponent;
-//# sourceMappingURL=welcome.component.js.map
+], ContactFormComponent);
+exports.ContactFormComponent = ContactFormComponent;
+//# sourceMappingURL=contactForm.component.js.map

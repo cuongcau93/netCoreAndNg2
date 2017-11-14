@@ -18,7 +18,18 @@ var FormComponent = (function () {
         this.hasPrimaryLanguageError = false;
         this.langues = ['English', 'Spanish', 'Other'];
         this.model = new employee_model_1.Employee('', '', true, "W2", "default", "11/11/2015");
+        this.title = 'Angular 2';
+        this.link = 'http://angular.io';
+        this.votes = 10;
     }
+    FormComponent.prototype.voteUp = function () {
+        this.votes += 1;
+        return false;
+    };
+    FormComponent.prototype.voteDown = function () {
+        this.votes -= 1;
+        return false;
+    };
     FormComponent.prototype.firstNameToUpperCae = function (value) {
         if (value.length > 0) {
             this.model.firstName = value.charAt(0).toUpperCase() + value.slice(1);
@@ -43,6 +54,9 @@ var FormComponent = (function () {
         //console.log(form.value);
         this.formPoster.postEmployeeForm(this.model)
             .subscribe(function (data) { return console.log('success: ', data); }, function (err) { return console.log('error: ', err); });
+    };
+    FormComponent.prototype.addArticle = function (title, link) {
+        console.log("Adding article title: " + title.value + " and link: " + link.value);
     };
     FormComponent.prototype.ngOnInit = function () {
         //this.formPoster.getProducts()

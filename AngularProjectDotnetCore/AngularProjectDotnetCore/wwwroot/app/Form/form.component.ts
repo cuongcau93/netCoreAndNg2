@@ -10,7 +10,24 @@ import { NgForm } from "@angular/forms";
 
 export class FormComponent implements OnInit {
 
-    constructor(private formPoster: FormPoster){}
+    //test1:
+    votes: number;
+    title: string;
+    link: string;
+
+    constructor(private formPoster: FormPoster) {
+        this.title = 'Angular 2';
+        this.link = 'http://angular.io';
+        this.votes = 10;
+    }
+    voteUp() {
+        this.votes += 1;
+        return false;
+    }
+    voteDown() {
+        this.votes -= 1;
+        return false;
+    }
 
     hasPrimaryLanguageError: boolean = false;
     langues: string[] = ['English', 'Spanish', 'Other'];
@@ -51,9 +68,14 @@ export class FormComponent implements OnInit {
             )
     }
 
+    addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
+        console.log(`Adding article title: ${title.value} and link: ${link.value}`);
+    }
+
     ngOnInit(): void {
         //this.formPoster.getProducts()
         //    .subscribe((product: any) => this.product = product);
-        console.log("sss"+this.formPoster.getProducts());
+        console.log("sss" + this.formPoster.getProducts());
     }
+
 }

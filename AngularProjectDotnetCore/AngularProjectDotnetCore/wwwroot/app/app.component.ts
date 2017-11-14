@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+//import { APP_BASE_HREF } from "@angular/common";
 
 @Component({
     selector: 'my-app',
@@ -26,6 +27,12 @@
                     <li>
                         <a [routerLink] = "['/customer']">Customer</a>
                     </li>
+                    <li>
+                        <a [routerLink] = "['/summernote']">Summernote</a>
+                    </li>
+                    <li>
+                        <a [routerLink] = "['/contactForm']">Contact Form</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -36,5 +43,8 @@
     `,
 })
 export class AppComponent {
+    //constructor( @Inject(APP_BASE_HREF) private baseHref: string) {
+    //    console.log(this.baseHref);
+    //}
     pageTitle: string = 'Acme Product Management';
 }
