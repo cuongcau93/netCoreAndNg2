@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <Content Remove="wwwroot/app\products\product-edit.component.ts" />
+    <Content Remove="wwwroot\app\accounts\accounts.component.ts" />
+    <Content Remove="wwwroot\app\accounts\accounts.module.ts" />
     <Content Remove="wwwroot\app\contactForm\contactForm.component.ts" />
     <Content Remove="wwwroot\app\contactForm\contactForm.module.ts" />
   </ItemGroup>
@@ -73,6 +75,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\app\accounts\accounts.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\accounts\accounts.module.ts" />
     <TypeScriptCompile Include="wwwroot\app\contactForm\contactForm.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\contactForm\contactForm.module.ts" />
   </ItemGroup>

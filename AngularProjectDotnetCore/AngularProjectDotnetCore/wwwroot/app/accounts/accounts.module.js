@@ -7,26 +7,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var contactForm_component_1 = require("./contactForm.component");
-var router_1 = require("@angular/router");
+var accounts_component_1 = require("./accounts.component");
 var shared_module_1 = require("../shared/shared.module");
-var ContactFormModule = (function () {
-    function ContactFormModule() {
+var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
+var AccountsModule = (function () {
+    function AccountsModule() {
     }
-    return ContactFormModule;
+    return AccountsModule;
 }());
-ContactFormModule = __decorate([
+AccountsModule = __decorate([
     core_1.NgModule({
         declarations: [
-            contactForm_component_1.ContactFormComponent
+            accounts_component_1.AccountsComponent,
         ],
         imports: [
             router_1.RouterModule.forChild([
-                { path: 'contactForm', component: contactForm_component_1.ContactFormComponent },
+                { path: 'accounts', component: accounts_component_1.AccountsComponent },
             ]),
             shared_module_1.ShareModule,
+            forms_1.ReactiveFormsModule
         ]
     })
-], ContactFormModule);
-exports.ContactFormModule = ContactFormModule;
-//# sourceMappingURL=contactForm.module.js.map
+], AccountsModule);
+exports.AccountsModule = AccountsModule;
+//# sourceMappingURL=accounts.module.js.map

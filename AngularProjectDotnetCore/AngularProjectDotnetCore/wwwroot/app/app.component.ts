@@ -31,8 +31,12 @@
                         <a [routerLink] = "['/summernote']">Summernote</a>
                     </li>
                     <li>
+                        <a [routerLink] = "['/lol']">Accounts</a>
+                    </li>
+                    <li>
                         <a [routerLink] = "['/contactForm']">Contact Form</a>
                     </li>
+               
                 </ul>
             </div>
         </nav>

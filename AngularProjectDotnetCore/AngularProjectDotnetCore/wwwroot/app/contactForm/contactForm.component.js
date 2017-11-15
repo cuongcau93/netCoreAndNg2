@@ -9,12 +9,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ContactFormComponent = (function () {
     function ContactFormComponent() {
-        this.lstContact = ["Nguyen", "Manh", "Cuong"];
+        this.disableCheckbox = false;
+        this.arrContact = [
+            { isEnable: true, isRequired: true, name: "Title" },
+            { isEnable: true, isRequired: true, name: "Email" },
+            { isEnable: true, isRequired: true, name: "First Name" },
+            { isEnable: true, isRequired: true, name: "Last Name" },
+            { isEnable: true, isRequired: true, name: "Profession" },
+            { isEnable: true, isRequired: true, name: "Country Code" },
+            { isEnable: true, isRequired: true, name: "Mobile Phone" },
+            { isEnable: true, isRequired: true, name: "Type Of Meeting" },
+            { isEnable: true, isRequired: false, name: "Company Name" },
+            { isEnable: true, isRequired: true, name: "Institution Type" },
+            { isEnable: false, isRequired: true, name: "Country" },
+            { isEnable: true, isRequired: false, name: "City" },
+            { isEnable: true, isRequired: false, name: "Company Telephone" },
+            { isEnable: true, isRequired: true, name: "Agenda" },
+            { isEnable: true, isRequired: false, name: "Attachments" },
+            { isEnable: true, isRequired: false, name: "Language on the meeting" },
+        ];
     }
-    ContactFormComponent.prototype.ContactFormComponent = function () {
-    };
     ContactFormComponent.prototype.ngOnInit = function () {
-        console.log('123');
+    };
+    ContactFormComponent.prototype.myMethod = function () {
+        this.disableCheckbox = true;
     };
     return ContactFormComponent;
 }());

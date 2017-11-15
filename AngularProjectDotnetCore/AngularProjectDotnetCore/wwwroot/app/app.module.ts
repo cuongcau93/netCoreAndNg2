@@ -13,6 +13,7 @@ import { RegisterModule } from "./register/register.module";
 import { CustomerModule } from "./customer/customer.module";
 import { APP_BASE_HREF } from "@angular/common";
 import { ContactFormModule } from "./contactForm/contactForm.module";
+import { AccountsModule } from "./accounts/accounts.module";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactFormModule } from "./contactForm/contactForm.module";
         FormModule,
         RegisterModule,
         CustomerModule,
-        ContactFormModule
+        ContactFormModule,
+        AccountsModule
         //SummernoteModule
     ],
 

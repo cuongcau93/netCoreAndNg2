@@ -1,7 +1,7 @@
 ﻿
 <div class='panel panel-default'>
     <div class='panel-content'>
-        <button class='btn btn-primary edit'> Edit </button>
+        <button (click)='myMethod()' class='btn btn-primary edit'> Edit </button>
     </div>
 
 </div>
@@ -17,10 +17,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let contact of lstContact'>
-                    <td class="icon-checkbox"><input type="checkbox"></td>
-                    <td class="icon-checkbox"><input type="checkbox"></td>
-                    <td>{{contact}}</td>
+                <tr *ngFor='let contact of arrContact'>
+                    <td class="icon-checkbox"><input type="checkbox" [(ngModel)]="contact.isEnable" [disabled]="!disableCheckbox"></td>
+                    <td class="icon-checkbox"><input type="checkbox" [(ngModel)]="contact.isRequired" [disabled]="!disableCheckbox"></td>
+                    <td>{{contact.name}}</td>
                 </tr>
             </tbody>
         </table>

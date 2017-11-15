@@ -17,6 +17,7 @@ var form_module_1 = require("./Form/form.module");
 var register_module_1 = require("./register/register.module");
 var customer_module_1 = require("./customer/customer.module");
 var contactForm_module_1 = require("./contactForm/contactForm.module");
+var accounts_module_1 = require("./accounts/accounts.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,7 +37,8 @@ AppModule = __decorate([
             form_module_1.FormModule,
             register_module_1.RegisterModule,
             customer_module_1.CustomerModule,
-            contactForm_module_1.ContactFormModule
+            contactForm_module_1.ContactFormModule,
+            accounts_module_1.AccountsModule
             //SummernoteModule
         ],
         declarations: [
